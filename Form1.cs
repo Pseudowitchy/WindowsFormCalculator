@@ -15,14 +15,15 @@ namespace Calculator
         private void ButtonClick(object sender, EventArgs e)
         {
             string buttonLabel = (sender as Button).Text;
-            if (excludes.Contains(Results.Text[Results.Text.Length -1]) && excludes.Contains(buttonLabel))
+            if (Results.Text == "∞") Results.Text = "0";
+            if (excludes.Contains(Results.Text[Results.Text.Length - 1]) && excludes.Contains(buttonLabel))
             { Results.Text = Results.Text.Remove(Results.Text.Length - 1); }
             if (Results.Text == "0")
             {
                 if (buttonLabel == "0") { }
                 else if (excludes.Contains(buttonLabel)) { Results.Text += buttonLabel; }
-                else Results.Text = buttonLabel; 
-            }            
+                else Results.Text = buttonLabel;
+            }
             else { Results.Text += buttonLabel; }
         }
 
